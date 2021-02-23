@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{%extends 'main.html'%}
+
+{% block title %} {{quoteSource}} {% endblock %}
+
+{% block body %}
+<h2>{{quoteSource}}</h2>
+
+{% for quote in quote %}
+<div class="row justify-content-center">
+  <div class="col">
+    <details class="quoteBox">
+      <summary class="title">
+        {% if quote.check == 'Yes' %}
+        <i class="fas fa-check"></i>
+        {% endif %}
+        {{quote}} ({{quote.date}})
+      </summary>
+        <p class="quote">{{quote.text}}</p>
+        <p class="signature">{{quote.author.surname}} {{quote.author.name}}<br>
+          {{quote.book.title}}", p. {{quote.page}}<br>
+          {{quote.book.pubHouse}}, {{quote.book.city}} {{quote.book.pubYear}}</p>
+    </details>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="col-1">
+    <a class="title" href="{% url 'editQuote' quote.id %}"><i class="fas fa-pen-nib"></i></a>
+  </div>
+  <div class="col-1">
+    <a class="title" href="{% url 'deleteQuote' quote.id %}"><i class="fas fa-times"></i></a>
+  </div>
+  {% endif %}
+</div>
+{% endfor %}
+
+{% endblock %}

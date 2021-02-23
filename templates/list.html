@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{%extends 'main.html'%}
+
+{% block title %} {{heading}} {% endblock %}
+
+{% block body %}
+
+<h2>{{heading}}</h2>
+<div class="list-group" style="text-align:center">
+  {% for quoteSource in quoteSource %}
+  <div class="row justify-content-center">
+    <div class="col">
+      <a class="list-group-item list-group-item-action" href="{% url linkName quoteSource.id %}">{{quoteSource}}</a>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="col-1">
+      <a class="list-group-item list-group-item-action" href="{% url editUrl quoteSource.id %}"><i class="fas fa-pen-nib"></i></a>
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

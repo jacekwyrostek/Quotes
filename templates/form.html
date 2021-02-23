@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{%extends 'main.html'%}
+{% load bootstrap %}
+{% block title %}  {% endblock %}
+
+{% block body %}
+<form method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{form|bootstrap_horizontal}}
+  <br>
+  <button type="submit">Save</button>
+</form>
+{% endblock %}

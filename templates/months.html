@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{%extends 'main.html'%}
+
+{% block title %}  {% endblock %}
+
+
+{% block body %}
+
+<a href="{% url 'month' '01' %}">January</a>
+<a href="{% url 'month' '02' %}">February</a>
+<a href="{% url 'month' '03' %}">March</a>
+<a href="{% url 'month' '04' %}">April</a>
+<a href="{% url 'month' '05' %}">May</a>
+<a href="{% url 'month' '06' %}">June</a>
+<a href="{% url 'month' '07' %}">July</a>
+<a href="{% url 'month' '08' %}">August</a>
+<a href="{% url 'month' '09' %}">September</a>
+<a href="{% url 'month' '10' %}">October</a>
+<a href="{% url 'month' '11' %}">November</a>
+<a href="{% url 'month' '12' %}">December</a>
+
+{% endblock %}

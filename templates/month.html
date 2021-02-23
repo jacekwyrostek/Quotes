@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{%extends 'main.html'%}
+
+{% block title %}  {% endblock %}
+
+
+
+{% block body %}
+
+
+    <h2>{{quoteSource}}</h2>
+    <ul>
+    {% for quote in monthQuote %}
+    <details>
+      <summary>
+        <h4>{{quote}}</h4>
+      </summary>
+        <p>"{{quote.text}}"</p>
+        <p>{{quote.author.surname}} {{quote.author.name}}</p>
+        <p>{{quote.book.title}}, p. {{quote.page}}</p>
+        <p>{{quote.book.pubHouse}}, {{quote.book.city}} {{quote.book.pubYear}}</p>
+    </details>
+    {% endfor %}
+  </ul>
+{% endblock %}

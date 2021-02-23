@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{%extends 'main.html'%}
+
+{% block title %}  {% endblock %}
+
+{% block body %}
+<h1 class="title"> Do you want delete {{quote}}?</h1>
+<form method='POST'>
+  {% csrf_token %}
+  <div class="button">
+    <button style="align-content: center" type="submit">Delete</button>
+  </div>
+</form>
+<br>
+<div class="button">
+  <a href="{% url 'start' %}"><button>No</button></a>
+</div>
+
+
+{% endblock %}

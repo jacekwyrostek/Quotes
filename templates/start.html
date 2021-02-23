@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{%extends 'main.html'%}
+
+{% block title %}  {% endblock %}
+
+{% block body %}
+<div style="text-align:center">
+  <h1 class="header_1">Quotes Site</h1>
+  <h3 class="header_1">Welcome</h3>
+</div>
+<br>
+<div class="title">
+  {% if quote.check == 'Yes' %}
+  <i class="fas fa-check"></i>
+  {% endif %}
+  {{quote}} ({{quote.date}})
+</div>
+  <p class="quote">{{quote.text}}</p>
+  <p class="signature">{{quote.author.surname}} {{quote.author.name}}<br>
+    {{quote.book.title}}", p. {{quote.page}}<br>
+    {{quote.book.pubHouse}}, {{quote.book.city}} {{quote.book.pubYear}}</p>
+
+{% endblock %}
