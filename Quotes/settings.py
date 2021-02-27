@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'Quotes.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-deafault_dburl='sqlite:///'+os.path.join(BASE_DIR, 'db.sqlite3')
+deafault_dburl='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES={'default':config('DATABASE_URL', default=deafault_dburl, cast=dburl)}
 
 
