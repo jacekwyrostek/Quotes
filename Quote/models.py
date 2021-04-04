@@ -50,5 +50,8 @@ class Quote(models.Model):
     book=models.ForeignKey(Book, null=True, on_delete=models.CASCADE, verbose_name=u"Book:")
     check=models.CharField(max_length=3, choices=choice, default='No')
 
+    class Meta:
+        ordering=['date']
+    
     def __str__(self):
         return self.desc
