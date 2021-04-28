@@ -57,7 +57,7 @@ def BookView(request, id):
     return render(request, 'quotes.html', obj)
 
 def MonthView(request, month):
-    quote=Quote.objects.filter(date__month=month)
+    quote=Quote.objects.filter(date__month=month).order_by('date__day')
     obj={
         'quote':quote,
     }
@@ -65,7 +65,7 @@ def MonthView(request, month):
 
 def ThisMonthView(request):
     month=datetime.datetime.today().month
-    quote=Quote.objects.filter(date__month=month)
+    quote=Quote.objects.filter(date__month=month).order_by('date__month')
     obj={
         'quote':quote,
     }

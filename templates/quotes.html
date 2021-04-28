@@ -14,7 +14,7 @@
         {% if quote.check == 'Yes' %}
         <i class="fas fa-check"></i>
         {% endif %}
-        {{quote}} ({{quote.date}}) ~ {{quote.author.surname}} {{quote.author.name}}
+        <b>{{quote.date|date:"d.m.Y"}}</b> {{quote}} - {{quote.author.surname}} {{quote.author.name}}
       </summary>
         <p class="quote">{{quote.text}}</p>
         <p class="signature">{{quote.author.surname}} {{quote.author.name}}<br>
