@@ -65,7 +65,7 @@ def MonthView(request, month):
 
 def ThisMonthView(request):
     month=datetime.datetime.today().month
-    quote=Quote.objects.filter(date__month=month).order_by('date__month')
+    quote=Quote.objects.filter(date__month=month).order_by('date__day')
     obj={
         'quote':quote,
     }
