@@ -64,7 +64,7 @@ def MonthView(request, month):
     return render(request, 'quotes.html', obj)
 
 def NoDateView(request):
-    quote=Quote.objects.filter(date=None)
+    quote=Quote.objects.filter(date=None).order_by('author')
     obj={
         'quote':quote,
     }
