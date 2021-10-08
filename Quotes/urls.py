@@ -29,6 +29,7 @@ urlpatterns = [
     path('books/<int:id>', BookView, name='book'),
     path('month/<str:month>', MonthView, name='month'),
     path('this_month/', ThisMonthView, name='thisMonth'),
+    path('no_date/', NoDateView, name='no_date'),
 
     path('newQoute/', NewQuote, name='newQuote'),
     path('newAuthor/', NewAuthor, name='newAuthor'),

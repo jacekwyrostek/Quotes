@@ -63,6 +63,13 @@ def MonthView(request, month):
     }
     return render(request, 'quotes.html', obj)
 
+def NoDateView(request):
+    quote=Quote.objects.filter(date=None)
+    obj={
+        'quote':quote,
+    }
+    return render(request, 'quotes.html', obj)
+
 def ThisMonthView(request):
     month=datetime.datetime.today().month
     quote=Quote.objects.filter(date__month=month).order_by('date__day')
