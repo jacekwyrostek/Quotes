@@ -38,6 +38,9 @@
     </ul>
   </li>
   <li class="nav-item">
+    <a class="header" href="{% url 'no_date' %}">No Date</a>
+  </li>
+  <li class="nav-item">
     <a class="header" href="{% url 'thisMonth' %}">This Month</a>
   </li>
   {% if user.is_authenticated %}

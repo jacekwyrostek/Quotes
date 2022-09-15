@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{%extends 'main.html'%}
+
+{% block title %} {{quoteSource}} {% endblock %}
+
+{% block body %}
+
+<h2>{{quoteSource}}</h2>
+
+{% for author in author %}
+  {% if author.id in authors_list %}
+  <h2>{{author.surname}} {{author.name}}</h2>
+  {% endif %}
+  {% for quote in quote %}
+    {% if quote.author == author %}
+      <div class="row justify-content-center">
+        <div class="col">
+          <details class="quoteBox">
+            <summary class="title">
+              {% if quote.check == 'Yes' %}
+              <i class="fas fa-check"></i>
+              {% endif %}
+              <b>{{quote.date|date:"d.m.Y"}}</b> - {{quote}} <i>- {{quote.author.surname}} {{quote.author.name}}</i>
+            </summary>
+              <p class="quote">{{quote.text}}</p>
+              <p class="signature">{{quote.author.surname}} {{quote.author.name}}<br>
+                {{quote.book.title}}", p. {{quote.page}}<br>
+                {{quote.book.pubHouse}}, {{quote.book.city}} {{quote.book.pubYear}}</p>
+          </details>
+        </div>
+        {% if user.is_authenticated %}
+        <div class="col-1">
+          <a class="title" href="{% url 'editQuote' quote.id %}"><i class="fas fa-pen-nib"></i></a>
+        </div>
+        <div class="col-1">
+          <a class="title" href="{% url 'deleteQuote' quote.id %}"><i class="fas fa-times"></i></a>
+        </div>
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+{% endblock %}

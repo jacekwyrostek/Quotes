@@ -65,10 +65,13 @@ def MonthView(request, month):
 
 def NoDateView(request):
     quote=Quote.objects.filter(date=None).order_by('author')
+    author=Author.objects.all().order_by('surname', 'name')
+    authors_list=Quote.objects.values_list('author', flat=True).distinct()
+
     obj={
-        'quote':quote,
+        'quote':quote,'author':author,'authors_list':authors_list,
     }
-    return render(request, 'quotes.html', obj)
+    return render(request, 'no_date_quotes.html', obj)
 
 def ThisMonthView(request):
     month=datetime.datetime.today().month
